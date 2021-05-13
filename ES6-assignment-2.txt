@@ -1,0 +1,114 @@
+1.Symbols:
+var fib_generator=function *(){
+      var current=0, next=1;
+      while(true){
+            [next,current]=[next+current,next];
+            yield current;
+      }
+}
+var fib=fib_generator();
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+output:     {value: 1, done: false}
+hello.js:10 {value: 1, done: false}
+hello.js:11 {value: 2, done: false}
+hello.js:12 {value: 3, done: false}
+hello.js:13 {value: 5, done: false}
+hello.js:14 {value: 8, done: false}
+----------------------------------------------------------------------------------
+2.Iterators:
+var getNextArmstrong=function(){
+      for (let i=100;;i++){
+      let n=i.toString().length;
+      let sum=0;
+      let temp=i;
+      while(temp>0){
+            let rem=temp%10;
+            sum +=rem**n;
+            temp=parseInt(temp/10);
+      }
+      if(sum===i){
+            console.log(i);}
+      if(i>1000){
+            break;
+      }
+}
+}
+console.log(getNextArmstrong());
+output:153
+hello.js:12 370
+hello.js:12 371
+hello.js:12 407
+-----------------------------------------------------------------------------------------
+3.Generators:
+var getNextArmstrong=function *(){
+      for (let i=100;;i++){
+      let n=i.toString().length;
+      let sum=0;
+      let temp=i;
+      while(temp>0){
+            let rem=temp%10;
+            sum +=rem**n;
+            temp=parseInt(temp/10);
+      }
+      if(sum===i){
+            yield i;}
+      if(i>1000){
+            break;
+      }
+}
+}
+var fib=getNextArmstrong();
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+console.log(fib.next());
+output:
+1.Object
+done: false
+value: 153__proto__: Object
+2.Object
+done: false
+value: 370__proto__: Object
+3.Object
+done: false
+value: 371__proto__: Object
+4.Object
+done: false
+value: 407__proto__: Object
+5.Object
+done: true
+value: undefined
+__proto__: Object
+------------------------------------------------------------------------------------
+4.Collections:
+let myMap=new Map();
+      
+myMap.set("chatroom1",[["user1",['Hii']],["user2",['Hello guys']],["user3",['Welcome all!']]]);
+myMap.set("chatroom2",[["user4",['How are you']],["user5",['I am fine']],["user6",['Lets meet soon']]]);
+
+console.log(myMap.get("chatroom1")[0][0]);
+console.log(myMap.get("chatroom1")[1][0]);
+console.log(myMap.get("chatroom1")[2][0]);
+console.log(myMap.get("chatroom2")[0][0]);
+console.log(myMap.get("chatroom2")[1][0]);
+console.log(myMap.get("chatroom2")[2][0]);
+output:All users:
+user1
+user2
+user3
+user4
+user5
+user6
+output:All messages:
+["Hii"]
+["Hello guys"]
+["Welcome all!"]
+["How are you"]
+["I am fine"]
+["Lets meet soon"]

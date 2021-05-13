@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script src="https://rawgit.com/stevekrouse/WoofJS/master/dist/woof.js"></script>
+        <script>
+            xAndY = document.createElement('p')
+            library = document.getElementsByTagName('script')[0]
+            document.body.insertBefore(xAndY, library)
+            xAndY.style = 'margin: 0;'
+            forever(() => {
+             xAndY.innerHTML = 'X: ' + mouseX + ' Y: ' + mouseY
+            })
+          </script>
+
+    </body>
+</html>

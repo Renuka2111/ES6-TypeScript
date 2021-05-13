@@ -1,0 +1,82 @@
+TypeScript
+1.Promises:
+var add=function(x,y){
+      return new Promise((resolve)=>{
+            var sum=x+y;
+            if(sum){
+                  resolve(sum);
+            }
+      });
+};
+console.log(add(10,10));
+output:
+Promise {<fulfilled>: 20}
+__proto__: Promise
+[[PromiseState]]: "fulfilled"
+[[PromiseResult]]: 20
+
+2.TypeScript Classes & Types:
+class Account{ 
+      constructor(id,name,balance){
+      this.id=id;
+      this.name=name;
+      this.balance=balance;
+      }
+}
+class SavingAccount extends Account{
+      constructor(id,name,balance,interest){
+            super(id,name,balance);
+            this.interest=interest
+            console.log('TotalBalance='+(balance+interest));
+      }
+}
+class CurrentAccount extends Account{
+      constructor(id,name,balance,cash_credit){
+            super(id,name,balance,cash_credit);
+            this.cash_credit=cash_credit;
+            console.log('TotalBalance='+(balance+cash_credit));
+      }
+}
+let obj1=new Account(123,"Radha",100);
+let obj2=new SavingAccount(123,"Radha",100,500);
+let obj3=new CurrentAccount(123,"Radha",100,100);
+output:
+TotalBalance=600
+hello.js:19 TotalBalance=200
+obj1
+Account {id: 123, name: "Radha", balance: 100}
+obj2
+SavingAccount {id: 123, name: "Radha", balance: 100, interest: 500}
+obj3
+CurrentAccount {id: 123, name: "Radha", balance: 100, cash_credit: 100}
+
+3.TypeScript Interfaces:
+interface Printable{
+  empId?: number;
+  empName?:string;
+  color?:string;
+  shape?:string
+    
+}
+let circle:Printable={
+  color:"Red",
+  shape:"Circle"
+}
+let employee:Printable={
+  empId:101,
+  empName:"John"
+}
+function printAll(obj){
+  return Object.preventExtensions(obj);
+
+}
+console.log(printAll(circle));
+console.log(printAll(employee));
+output:
+{color: "Red", shape: "Circle"}
+color: "Red"
+shape: "Circle"
+{empId: 101, empName: "John"}
+empId: 101
+empName: "John"
+​

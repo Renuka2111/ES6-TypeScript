@@ -1,0 +1,128 @@
+1.const a=10;
+if(a==10){
+   var b=a+5;
+  console.log(a);
+}
+console.log(a);
+console:10,10
+-----------------------------------------------------------------------------------------------------------
+2.var a=10;
+if(a===10){
+   let b=5;
+   console.log(b);
+}
+console.log(b);
+output:10
+Uncaught ReferenceError: b is not defined
+--------------------------------------------------------------------------------------------------------------------------
+3.var order={
+   id:123,
+   title:"Pizza ",
+   price:400,
+   printOrder:function(){console.log(order);},
+   getPrice:function(){console.log(order.price);}
+}
+
+order.printOrder();
+order.getPrice();
+ 
+var Order1=Object.assign(order);
+console.log(Order1.printOrder());
+output:
+id: 123, title: "Pizza ", price: 400, printOrder: ƒ, getPrice: ƒ}
+hello.js:6 400
+hello.js:5 {id: 123, title: "Pizza ", price: 400, printOrder: ƒ, getPrice: ƒ}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+4.let names=['Tom','Ivan','Jerry'];
+
+var object=
+   [{name:names[0],lenght:names[0].length},
+   {name:names[1],length:names[1].length},
+   {name:names[2],length:names[2].length}];
+
+console.log(object[2]);
+{name: "Jerry", length: 5}
+console.log(object);
+0: {name: "Tom", lenght: 3}
+1: {name: "Ivan", length: 4}
+2: {name: "Jerry", length: 5}
+length: 3
+__proto__: Array(0)
+----------------------------------------------------------------------------------------------------------------------------------
+5.b.
+let display=function userFriends(username,...list){
+   console.log(username);
+   console.log(list);
+   for(let i in list){
+      console.log(list[i]);
+   }
+};
+let username="Renuka"
+let list=['Sakshi','Rahul']
+display(username,list);
+output:Renuka
+hello.js:3 [Array(2)]
+hello.js:5 (2) ["Sakshi", "Rahul"]
+---------------------------------------------------------------------------------------------------------------------------------
+5.c
+let printCapitalNames=function(...names){
+      for(let i in names){
+         console.log(names[i].toUpperCase());
+      }
+}
+let names=['renuka','asha','punam'];
+printCapitalNames(...names)
+output:RENUKA
+hello.js:3 ASHA
+hello.js:3 PUNAM
+--------------------------------------------------------------------------------------------------------------------------------
+7.a.
+let colors=['Red','White','Blue','Yellow'];
+let[c1,c2,c3,c4]=colors;
+console.log(c3);
+output:Blue
+-------------------------------------------------------------------------------------------------------------------------------------------
+7.b
+var object={
+      name:"Radhika",
+      address:{
+            city:"New York",
+            pincode:444000}
+}
+console.log(object.address.pincode);
+output:444000
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+8.
+class Account{ 
+      constructor(id,name,balance){
+      this.id=id;
+      this.name=name;
+      this.balance=balance;
+      }
+}
+class SavingAccount extends Account{
+      constructor(id,name,balance,interest){
+            super(id,name,balance);
+            this.interest=interest
+            console.log('TotalBalance='+(balance+interest));
+      }
+}
+class CurrentAccount extends Account{
+      constructor(id,name,balance,cash_credit){
+            super(id,name,balance,cash_credit);
+            this.cash_credit=cash_credit;
+            console.log('TotalBalance='+(balance+cash_credit));
+      }
+}
+let obj1=new Account(123,"Radha",100);
+let obj2=new SavingAccount(123,"Radha",100,500);
+let obj3=new CurrentAccount(123,"Radha",100,100);
+output:
+TotalBalance=600
+hello.js:19 TotalBalance=200
+obj1
+Account {id: 123, name: "Radha", balance: 100}
+obj2
+SavingAccount {id: 123, name: "Radha", balance: 100, interest: 500}
+obj3
+CurrentAccount {id: 123, name: "Radha", balance: 100, cash_credit: 100}
